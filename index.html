@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Dropdown Example</title>
+  <link rel="stylesheet" href="/dropdown.css">
+</head>
+<body>
+  <div id="app">
+    <dropdown name="country_dropdown[]" label="Select A Country" v-bind:options="countryDropdown" v-on:change="updateResults" url="/countries.json" v-on:more="loadMoreDropdown"></dropdown>
+    <div v-text="countryResults.join(', ')"></div>
+  </div>
+  <script src="https://unpkg.com/vue@2.2.2/dist/vue.js"></script>
+  <script src="/index.js"></script>
+  <script>
+    var app = new window.Vue({
+      el: '#app',
+      data: {
+        countryResults: [],
+        countryDropdown: {
+          "Afghanistan": "Afghanistan",
+          "Aland Islands": "Aland Islands",
+          "Albania": "Albania",
+          "Algeria": "Algeria",
+          "American Samoa": "American Samoa",
+          "Andorra": "Andorra",
+          "Angola": "Angola",
+          "Anguilla": "Anguilla",
+          "Antarctica": "Antarctica",
+          "Antigua and Barbuda": "Antigua and Barbuda"
+        }
+      },
+      methods: {
+        updateResults: function(results) {
+          this.countryResults = results;
+        },
+        loadMoreDropdown: function(data) {
+          fetch(data[1])
+          .then(function(response) {
+            return response.json();
+          }).then(function(res) {
+            this.countryDropdown = res;
+          }.bind(this)).catch(function(err) {
+            console.error(err);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

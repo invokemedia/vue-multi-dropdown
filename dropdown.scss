@@ -1,0 +1,98 @@
+.dropdown-wrapper {
+  position: relative;
+  font-family: sans-serif;
+  &.dropdown-open {
+    .dropdown-button {
+      border-bottom: 1px solid #ddd;
+    }
+    .dropdown-list {
+      display: block;
+    }
+  }
+  &.dropdown-more {
+    .dropdown-list {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+  }
+  .dropdown-button {
+    cursor: pointer;
+    touch-action: manipulation; // removes click delay!
+    border: 1px solid #ccc;
+    padding: 0.7rem 1rem;
+    user-select: none;
+    transition: all 0.2s ease;
+    .icon {
+      font-size: 0.9em;
+      float: right;
+      margin-top: 0.3rem;
+      display: inline-block;
+      transform: rotate(0);
+      transition: all 0.2s ease;
+    }
+  }
+  .dropdown-list {
+    background: white;
+    padding: 0.5rem 0;
+    font-size: 0.9em;
+    color: black;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-top: none;
+    box-sizing: border-box;
+    display: none;
+    .dropdown-more {
+      padding: 0.5rem 1.5rem;
+      position: relative;
+    }
+    .dropdown-more {
+      font-size: 10px;
+      color: black;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        color: #333;
+      }
+    }
+    .dropdown-option {
+      position: relative;
+      &:hover .dropdown-label {
+        opacity: 1;
+      }
+      input[type=checkbox] {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        z-index: 1;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;
+      }
+    }
+    .dropdown-label {
+      pointer-events: none;
+      transition: all 0.2s ease;
+      position: relative;
+      opacity: 0.7;
+      padding: 0.5rem 1.5rem;
+      background: rgba(#df7836, 0);
+      transition: all 0.2s ease;
+      span {
+        display: inline-block;
+        max-width: 80%;
+      }
+    }
+    input[type=checkbox]:checked + .dropdown-label {
+      opacity: 1;
+      background: rgba(#df7836, 0.1);
+    }
+  }
+}

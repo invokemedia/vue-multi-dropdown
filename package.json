@@ -1,0 +1,28 @@
+{
+  "name": "vue-dropdown",
+  "version": "1.0.0",
+  "description": "A custom dropdown component for Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invokemedia/vue-dropdown.git"
+  },
+  "keywords": [
+    "vue",
+    "dropdown",
+    "select",
+    "checkbox",
+    "custom",
+    "form",
+    "input"
+  ],
+  "author": "Invoke Media",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/invokemedia/vue-dropdown/issues"
+  },
+  "homepage": "https://github.com/invokemedia/vue-dropdown#readme"
+}
