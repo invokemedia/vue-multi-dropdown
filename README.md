@@ -1,4 +1,4 @@
-# vue-dropdown
+# vue-multi-dropdown
 
 A custom dropdown component for Vue.js
 
@@ -6,18 +6,18 @@ A custom dropdown component for Vue.js
 
 Here is a demo using the default styling below:
 
-![demo](https://raw.githubusercontent.com/invokemedia/vue-dropdown/master/demo.gif)
+![demo](https://raw.githubusercontent.com/invokemedia/vue-multi-dropdown/master/demo.gif)
 
 ### Installation
 
 ```
-npm install vue-dropdown
+npm install vue-multi-dropdown
 ```
 
 These component is tied to the Vue window object, so all you need to do is require it where there is access to the `window.Vue` object.
 
 ```
-require('vue-dropdown');
+require('vue-multi-dropdown');
 ```
 
 #### Using the dropdown

@@ -1,5 +1,5 @@
 {
-  "name": "vue-dropdown",
+  "name": "vue-multi-dropdown",
   "version": "1.0.0",
   "description": "A custom dropdown component for Vue.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/invokemedia/vue-dropdown.git"
+    "url": "git+https://github.com/invokemedia/vue-multi-dropdown.git"
   },
   "keywords": [
     "vue",
@@ -22,7 +22,7 @@
   "author": "Invoke Media",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/invokemedia/vue-dropdown/issues"
+    "url": "https://github.com/invokemedia/vue-multi-dropdown/issues"
   },
-  "homepage": "https://github.com/invokemedia/vue-dropdown#readme"
+  "homepage": "https://github.com/invokemedia/vue-multi-dropdown#readme"
 }
