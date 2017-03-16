@@ -8,6 +8,49 @@ Here is a demo using the default styling below:
 
 ![demo](https://raw.githubusercontent.com/invokemedia/vue-multi-dropdown/master/demo.gif)
 
+### Reasons
+
+The dropdown uses real `input[type=checkbox]` fields. This means that it will work with *native forms*. This is useful if you are doing AJAX with real forms by using `FormData`.
+
+For example:
+
+#### Given:
+
+```html
+<form method="get" accept-charset="utf-8" enctype="multipart/form-data">
+  <dropdown name="country_dropdown[]" label="Select A Country" v-bind:options="countryDropdown" v-on:change="updateResults" url="/countries.json" v-on:more="loadMoreDropdown"></dropdown>
+</form>
+```
+
+#### Then we select 5 different items and get the FormData:
+
+```js
+const f = new FormData(document.forms[0]);
+for(var pair of f.entries()) { console.log(pair) }
+// ["country_dropdown[]", "Aland Islands"]
+// ["country_dropdown[]", "American Samoa"]
+// ["country_dropdown[]", "Angola"]
+// ["country_dropdown[]", "Benin"]
+// ["country_dropdown[]", "Burkina Faso"]
+// ["country_dropdown[]", "Czech Republic"]
+```
+
+This works really great for normal `POST` forms that aren't using AJAX. And if you are, you can easily pass the `FormData` to the request and still have minimal code.
+
+I often use this approach in Vue.js with a `v-on:submit` handler:
+
+```js
+const formData = new FormData(event.target);
+window.axios
+  .post(event.target.action, formData)
+  .then((res) => {
+    // s'all good man
+  })
+  .catch((err) => {
+    // s'all NOT good man
+  });
+```
+
 ### Installation
 
 ```
