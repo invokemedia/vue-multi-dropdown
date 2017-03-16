@@ -6,7 +6,10 @@
 </head>
 <body>
   <div id="app">
-    <dropdown name="country_dropdown[]" label="Select A Country" v-bind:options="countryDropdown" v-on:change="updateResults" url="/countries.json" v-on:more="loadMoreDropdown"></dropdown>
+    <form method="get" accept-charset="utf-8" enctype="multipart/form-data">
+      <dropdown name="country_dropdown[]" label="Select A Country" v-bind:options="countryDropdown" v-on:change="updateResults" url="/countries.json" v-on:more="loadMoreDropdown"></dropdown>
+      <input type="submit" name="Submit">
+    </form>
     <div v-text="countryResults.join(', ')"></div>
   </div>
   <script src="https://unpkg.com/vue@2.2.2/dist/vue.js"></script>
@@ -15,7 +18,9 @@
     var app = new window.Vue({
       el: '#app',
       data: {
+        // the active items
         countryResults: [],
+        // the initial list
         countryDropdown: {
           "Afghanistan": "Afghanistan",
           "Aland Islands": "Aland Islands",
@@ -30,9 +35,11 @@
         }
       },
       methods: {
+        // what happens when the results are updated?
         updateResults: function(results) {
           this.countryResults = results;
         },
+        // what happens when the load-more button is clicked?
         loadMoreDropdown: function(data) {
           fetch(data[1])
           .then(function(response) {
